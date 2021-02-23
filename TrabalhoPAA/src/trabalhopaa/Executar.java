@@ -62,7 +62,7 @@ public class Executar {
                         System.out.println("Insira a quantidade de elementos que o vetor deve ter(a quantidade deverá ser entre 1000 e 25000): ");
                         sc = new Scanner(System.in);
                         quantidade = Integer.parseInt(sc.nextLine());
-                    } while (quantidade < 10 || quantidade > 25000);
+                    } while (quantidade < 1000 || quantidade > 25000);
                     vetorDecrescente = GerarDecrescente(quantidade);
                     vetorCrescente = GerarCrescente(quantidade);
                     vetorRandomico = GerarRandom(quantidade);
