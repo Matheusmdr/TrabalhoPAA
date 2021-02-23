@@ -41,7 +41,7 @@ public class Executar {
                 + "11 - Merge Sort\n"
                 + "0 – Sair\n";
         System.out.println(menu);
-        System.out.print("Digite Opção:");
+        System.out.print("Escolha uma opção: ");
         Scanner sc = new Scanner(System.in);
         op = Integer.parseInt(sc.nextLine());
         return op;
@@ -51,7 +51,7 @@ public class Executar {
         int op;
         Scanner sc;
         int quantidade;
-
+        Boolean aux = false;
         do {
             clrscr();
             op = menu();
@@ -66,55 +66,96 @@ public class Executar {
                     vetorDecrescente = GerarDecrescente(quantidade);
                     vetorCrescente = GerarCrescente(quantidade);
                     vetorRandomico = GerarRandom(quantidade);
+                    aux = true;
                     break;
                 case 2:
                     clrscr();
-                    ExibirVetoresNaoOrdenados();
+                    if (aux) {
+                        ExibirVetoresNaoOrdenados();
+                    } else {
+                        System.out.println("Os Vetores ainda não foram criados");
+                    }
                     break;
                 case 3:
                     clrscr();
-                    copiarVetores();
-                    TestarBubbleSort();
+                    if (aux) {
+                        copiarVetores();
+                        TestarBubbleSort();
+                    } else {
+                        System.out.println("Os Vetores ainda não foram criados");
+                    }
                     break;
                 case 4:
                     clrscr();
-                    copiarVetores();
-                    TestarBubbleSortMelhorado();
+                    if (aux) {
+                        copiarVetores();
+                        TestarBubbleSortMelhorado();
+                    } else {
+                        System.out.println("Os Vetores ainda não foram criados");
+                    }
                     break;
                 case 5:
                     clrscr();
-                    copiarVetores();
-                    TestarQuickSort1();
+                    if (aux) {
+                        copiarVetores();
+                        TestarQuickSort1();
+                    } else {
+                        System.out.println("Os Vetores ainda não foram criados");
+                    }
                     break;
                 case 6:
                     clrscr();
-                    copiarVetores();
-                    TestarQuickSort2();
+                    if (aux) {
+                        copiarVetores();
+                        TestarQuickSort2();
+                    } else {
+                        System.out.println("Os Vetores ainda não foram criados");
+                    }
                     break;
                 case 7:
                     clrscr();
-                    copiarVetores();
-                    TestarInsertionSort();
+                    if (aux) {
+                        copiarVetores();
+                        TestarInsertionSort();
+                    } else {
+                        System.out.println("Os Vetores ainda não foram criados");
+                    }
                     break;
                 case 8:
                     clrscr();
-                    copiarVetores();
-                    TestarShellSort();
+                    if (aux) {
+                        copiarVetores();
+                        TestarShellSort();
+                    } else {
+                        System.out.println("Os Vetores ainda não foram criados");
+                    }
                     break;
                 case 9:
                     clrscr();
-                    copiarVetores();
-                    TestarSelectionSort();
+                    if (aux) {
+                        copiarVetores();
+                        TestarSelectionSort();
+                    } else {
+                        System.out.println("Os Vetores ainda não foram criados");
+                    }
                     break;
                 case 10:
                     clrscr();
-                    copiarVetores();
-                    TestarHeapSort();
+                    if (aux) {
+                        copiarVetores();
+                        TestarHeapSort();
+                    } else {
+                        System.out.println("Os Vetores ainda não foram criados");
+                    }
                     break;
                 case 11:
                     clrscr();
-                    copiarVetores();
-                    TestarMergeSort();
+                    if (aux) {
+                        copiarVetores();
+                        TestarMergeSort();
+                    } else {
+                        System.out.println("Os Vetores ainda não foram criados");
+                    }
                     break;
             }
         } while (op != 0);
@@ -345,46 +386,46 @@ public class Executar {
 
     private int[] GerarDecrescente(int n) {
         int[] v = new int[n];
-        int cont = n;
+        int cont = n-1;
         for (int i = 0; i < n; i++) {
             v[i] = cont;
             cont--;
         }
         return v;
     }
-    
-    private void ExibirVetoresNaoOrdenados(){
+
+    private void ExibirVetoresNaoOrdenados() {
         int i;
-        
+
         System.out.println("\n\nVetor iniciado em ordem Crescente: ");
         for (i = 0; i < vetorCrescente.length; i++) {
             System.out.println(vetorCrescente[i]);
         }
-        
+
         System.out.println("\n\nVetor iniciado em ordem Decrescente: ");
         for (i = 0; i < vetorDecrescente.length; i++) {
             System.out.println(vetorDecrescente[i]);
         }
-        
+
         System.out.println("\n\nVetor iniciado em ordem aleatória: ");
         for (i = 0; i < vetorRandomico.length; i++) {
             System.out.println(vetorRandomico[i]);
         }
     }
-    
-    private void ExibirVetoresOrdenados(){
+
+    private void ExibirVetoresOrdenados() {
         int i;
-        
+
         System.out.println("\n\nVetor iniciado em ordem Crescente: ");
         for (i = 0; i < vetorCopiaCrescente.length; i++) {
             System.out.println(vetorCopiaCrescente[i]);
         }
-        
+
         System.out.println("\n\nVetor iniciado em ordem Decrescente: ");
         for (i = 0; i < vetorCopiaDecrescente.length; i++) {
             System.out.println(vetorCopiaDecrescente[i]);
         }
-        
+
         System.out.println("\n\nVetor iniciado em ordem aleatória: ");
         for (i = 0; i < vetorCopiaRandomico.length; i++) {
             System.out.println(vetorCopiaRandomico[i]);
@@ -394,9 +435,8 @@ public class Executar {
     private void Exibir(long tempoVetorCrescente, long tempoVetorDecrescente, long tempoVetorRandomico) {
         int i;
         
-        
-        ExibirVetoresOrdenados();
-        
+       // ExibirVetoresOrdenados();
+
         System.out.println("\nVetor que foi iniciado em ordem crescente foi ordenado em = " + tempoVetorCrescente + " ms");
 
         System.out.println("\nVetor que foi iniciado em ordem decrescente foi ordenado em = " + tempoVetorDecrescente + " ms");
