@@ -40,6 +40,7 @@ public class Executar {
                 + "9 – Selection Sort\n"
                 + "10 – Heap Sort\n"
                 + "11 - Merge Sort\n"
+                + "12 - Teste com todos os algoritmos de ordenação\n"
                 + "0 – Sair\n";
         System.out.println(menu);
         System.out.print("Escolha uma opção: ");
@@ -52,7 +53,7 @@ public class Executar {
         int op;
         Scanner sc;
         int quantidade;
-        Boolean aux = false;
+        boolean aux = false;
         do {
             clrscr();
             op = menu();
@@ -60,10 +61,10 @@ public class Executar {
                 case 1:
                     clrscr();
                     do {
-                        System.out.println("Insira a quantidade de elementos que o vetor deve ter(a quantidade deverá ser entre 1000 e 25000): ");
+                        System.out.println("Insira a quantidade de elementos que o vetor deve ter: ");
                         sc = new Scanner(System.in);
                         quantidade = Integer.parseInt(sc.nextLine());
-                    } while (quantidade < 10 || quantidade > 25000);
+                    } while (quantidade <= 0);
                     vetorDecrescente = GerarDecrescente(quantidade);
                     vetorCrescente = GerarCrescente(quantidade);
                     vetorRandomico = GerarRandom(quantidade);
@@ -80,6 +81,7 @@ public class Executar {
                 case 3:
                     clrscr();
                     if (aux) {
+                        System.out.println("-Bubble Sort\n");
                         copiarVetores();
                         TestarBubbleSort();
                     } else {
@@ -89,6 +91,7 @@ public class Executar {
                 case 4:
                     clrscr();
                     if (aux) {
+                        System.out.println("-Bubble Sort melhorado\n");
                         copiarVetores();
                         TestarBubbleSortMelhorado();
                     } else {
@@ -98,8 +101,8 @@ public class Executar {
                 case 5:
                     clrscr();
                     if (aux) {
+                        System.out.println("-Quick Sort (com pivô sendo o primeiro elemento da lista – partição)\n");
                         copiarVetores();
-                        
                         TestarQuickSort1();
                     } else {
                         System.out.println("Os Vetores ainda não foram criados");
@@ -108,6 +111,7 @@ public class Executar {
                 case 6:
                     clrscr();
                     if (aux) {
+                        System.out.println("-Quick Sort (com pivô sendo o elemento central da lista – partição)\n");
                         copiarVetores();
                         TestarQuickSort2();
                     } else {
@@ -117,6 +121,7 @@ public class Executar {
                 case 7:
                     clrscr();
                     if (aux) {
+                        System.out.println("-Insertion Sort\n");
                         copiarVetores();
                         TestarInsertionSort();
                     } else {
@@ -126,6 +131,7 @@ public class Executar {
                 case 8:
                     clrscr();
                     if (aux) {
+                        System.out.println("-Shell Sort\n");
                         copiarVetores();
                         TestarShellSort();
                     } else {
@@ -135,6 +141,7 @@ public class Executar {
                 case 9:
                     clrscr();
                     if (aux) {
+                        System.out.println("-Selection Sort\n");
                         copiarVetores();
                         TestarSelectionSort();
                     } else {
@@ -144,6 +151,7 @@ public class Executar {
                 case 10:
                     clrscr();
                     if (aux) {
+                        System.out.println("-Heap Sort\n");
                         copiarVetores();
                         TestarHeapSort();
                     } else {
@@ -153,8 +161,17 @@ public class Executar {
                 case 11:
                     clrscr();
                     if (aux) {
+                        System.out.println("-Merge Sort\n");
                         copiarVetores();
                         TestarMergeSort();
+                    } else {
+                        System.out.println("Os Vetores ainda não foram criados");
+                    }
+                    break;
+                case 12:
+                    clrscr();
+                    if (aux) {
+                        TestarTodos();
                     } else {
                         System.out.println("Os Vetores ainda não foram criados");
                     }
@@ -190,7 +207,6 @@ public class Executar {
         tempoVetorRandomico = TimeUnit.MILLISECONDS.convert(tempoFinal - tempoInicial, TimeUnit.NANOSECONDS);
 
         Exibir(tempoVetorCrescente, tempoVetorDecrescente, tempoVetorRandomico);
-
     }
 
     private void TestarBubbleSortMelhorado() {
@@ -263,7 +279,7 @@ public class Executar {
         long tempoFinal, tempoInicial;
 
         long tempoVetorCrescente, tempoVetorDecrescente, tempoVetorRandomico;
-        tempoInicial =System.nanoTime();
+        tempoInicial = System.nanoTime();
         ordenador.InsertionSort(vetorCopiaCrescente);
         tempoFinal = System.nanoTime();
         tempoVetorCrescente = TimeUnit.MILLISECONDS.convert(tempoFinal - tempoInicial, TimeUnit.NANOSECONDS);
@@ -290,7 +306,7 @@ public class Executar {
         tempoFinal = System.nanoTime();
         tempoVetorCrescente = TimeUnit.MILLISECONDS.convert(tempoFinal - tempoInicial, TimeUnit.NANOSECONDS);
 
-        tempoInicial =System.nanoTime();
+        tempoInicial = System.nanoTime();
         ordenador.ShellSort(vetorCopiaDecrescente);
         tempoFinal = System.nanoTime();
         tempoVetorDecrescente = TimeUnit.MILLISECONDS.convert(tempoFinal - tempoInicial, TimeUnit.NANOSECONDS);
@@ -329,24 +345,24 @@ public class Executar {
         long tempoFinal, tempoInicial;
 
         long tempoVetorCrescente, tempoVetorDecrescente, tempoVetorRandomico;
-        
+
         tempoInicial = System.nanoTime();
         ordenador.HeapSort(vetorCopiaCrescente);
         tempoFinal = System.nanoTime();
         tempoVetorCrescente = TimeUnit.MILLISECONDS.convert(tempoFinal - tempoInicial, TimeUnit.NANOSECONDS);
-        
+
         tempoInicial = tempoFinal = 0;
-        
+
         tempoInicial = System.nanoTime();
         ordenador.HeapSort(vetorCopiaDecrescente);
         tempoFinal = System.nanoTime();
         tempoVetorDecrescente = TimeUnit.MILLISECONDS.convert(tempoFinal - tempoInicial, TimeUnit.NANOSECONDS);
-        
+
         tempoInicial = tempoFinal = 0;
-        
-        tempoInicial =  System.nanoTime();
+
+        tempoInicial = System.nanoTime();
         ordenador.HeapSort(vetorCopiaRandomico);
-        tempoFinal =  System.nanoTime();
+        tempoFinal = System.nanoTime();
         tempoVetorRandomico = TimeUnit.MILLISECONDS.convert(tempoFinal - tempoInicial, TimeUnit.NANOSECONDS);
 
         Exibir(tempoVetorCrescente, tempoVetorDecrescente, tempoVetorRandomico);
@@ -374,6 +390,44 @@ public class Executar {
         Exibir(tempoVetorCrescente, tempoVetorDecrescente, tempoVetorRandomico);
     }
 
+    private void TestarTodos() {
+        System.out.println("\n-Bubble Sort\n");
+        copiarVetores();
+        TestarBubbleSort();
+        
+        System.out.println("\n-Bubble Sort melhorado\n");
+        copiarVetores();
+        TestarBubbleSortMelhorado();
+        
+        System.out.println("\n-Quick Sort (com pivô sendo o primeiro elemento da lista – partição)\n");
+        copiarVetores();
+        TestarQuickSort1();
+        
+        System.out.println("\n-Quick Sort (com pivô sendo o elemento central da lista – partição)\n");
+        copiarVetores();
+        TestarQuickSort2();
+        
+        System.out.println("\n-Insertion Sort\n");
+        copiarVetores();
+        TestarInsertionSort();
+        
+        System.out.println("\n-Shell Sort\n");
+        copiarVetores();
+        TestarShellSort();
+        
+        System.out.println("\n-Selection Sort\n");
+        copiarVetores();
+        TestarSelectionSort();
+        
+        System.out.println("\n-Heap Sort\n");
+        copiarVetores();
+        TestarHeapSort();
+        
+        System.out.println("\n-Merge Sort\n");
+        copiarVetores();
+        TestarMergeSort();
+    }
+
     private int[] GerarRandom(int n) {
         int[] v = new int[n];
         Random Gerador = new Random();
@@ -393,7 +447,7 @@ public class Executar {
 
     private int[] GerarDecrescente(int n) {
         int[] v = new int[n];
-        int cont = n-1;
+        int cont = n - 1;
         for (int i = 0; i < n; i++) {
             v[i] = cont;
             cont--;
@@ -441,14 +495,13 @@ public class Executar {
 
     private void Exibir(long tempoVetorCrescente, long tempoVetorDecrescente, long tempoVetorRandomico) {
         int i;
-        
+
         //ExibirVetoresOrdenados();
+        System.out.println("Crescente: " + tempoVetorCrescente + " ms");
 
-        System.out.println("\nVetor que foi iniciado em ordem crescente foi ordenado em = " + tempoVetorCrescente + " ms");
+        System.out.println("Decrescente: " + tempoVetorDecrescente + " ms");
 
-        System.out.println("\nVetor que foi iniciado em ordem decrescente foi ordenado em = " + tempoVetorDecrescente + " ms");
-
-        System.out.println("\nVetor que foi iniciado em ordem aleatória foi ordenado em = " + tempoVetorRandomico + " ms");
+        System.out.println("Aleatório: " + tempoVetorRandomico + " ms\n");
 
     }
 
