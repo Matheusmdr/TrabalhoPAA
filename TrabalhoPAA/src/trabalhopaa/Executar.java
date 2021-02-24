@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 /**
  *
@@ -62,7 +63,7 @@ public class Executar {
                         System.out.println("Insira a quantidade de elementos que o vetor deve ter(a quantidade deverá ser entre 1000 e 25000): ");
                         sc = new Scanner(System.in);
                         quantidade = Integer.parseInt(sc.nextLine());
-                    } while (quantidade < 1000 || quantidade > 25000);
+                    } while (quantidade < 10 || quantidade > 25000);
                     vetorDecrescente = GerarDecrescente(quantidade);
                     vetorCrescente = GerarCrescente(quantidade);
                     vetorRandomico = GerarRandom(quantidade);
@@ -98,6 +99,7 @@ public class Executar {
                     clrscr();
                     if (aux) {
                         copiarVetores();
+                        
                         TestarQuickSort1();
                     } else {
                         System.out.println("Os Vetores ainda não foram criados");
@@ -172,20 +174,20 @@ public class Executar {
 
         long tempoVetorCrescente, tempoVetorDecrescente, tempoVetorRandomico;
 
-        tempoInicial = System.currentTimeMillis();
+        tempoInicial = System.nanoTime();
         ordenador.BubbleSort(vetorCopiaCrescente);
-        tempoFinal = System.currentTimeMillis();
-        tempoVetorCrescente = tempoFinal - tempoInicial;
+        tempoFinal = System.nanoTime();
+        tempoVetorCrescente = TimeUnit.MILLISECONDS.convert(tempoFinal - tempoInicial, TimeUnit.NANOSECONDS);
 
-        tempoInicial = System.currentTimeMillis();
+        tempoInicial = System.nanoTime();
         ordenador.BubbleSort(vetorCopiaDecrescente);
-        tempoFinal = System.currentTimeMillis();
-        tempoVetorDecrescente = tempoFinal - tempoInicial;
+        tempoFinal = System.nanoTime();
+        tempoVetorDecrescente = TimeUnit.MILLISECONDS.convert(tempoFinal - tempoInicial, TimeUnit.NANOSECONDS);
 
-        tempoInicial = System.currentTimeMillis();
+        tempoInicial = System.nanoTime();
         ordenador.BubbleSort(vetorCopiaRandomico);
-        tempoFinal = System.currentTimeMillis();
-        tempoVetorRandomico = tempoFinal - tempoInicial;
+        tempoFinal = System.nanoTime();
+        tempoVetorRandomico = TimeUnit.MILLISECONDS.convert(tempoFinal - tempoInicial, TimeUnit.NANOSECONDS);
 
         Exibir(tempoVetorCrescente, tempoVetorDecrescente, tempoVetorRandomico);
 
@@ -195,20 +197,20 @@ public class Executar {
         long tempoFinal, tempoInicial;
 
         long tempoVetorCrescente, tempoVetorDecrescente, tempoVetorRandomico;
-        tempoInicial = System.currentTimeMillis();
+        tempoInicial = System.nanoTime();
         ordenador.BubbleSortMelhorado(vetorCopiaCrescente);
-        tempoFinal = System.currentTimeMillis();
-        tempoVetorCrescente = tempoFinal - tempoInicial;
+        tempoFinal = System.nanoTime();
+        tempoVetorCrescente = TimeUnit.MILLISECONDS.convert(tempoFinal - tempoInicial, TimeUnit.NANOSECONDS);
 
-        tempoInicial = System.currentTimeMillis();
+        tempoInicial = System.nanoTime();
         ordenador.BubbleSortMelhorado(vetorCopiaDecrescente);
-        tempoFinal = System.currentTimeMillis();
-        tempoVetorDecrescente = tempoFinal - tempoInicial;
+        tempoFinal = System.nanoTime();
+        tempoVetorDecrescente = TimeUnit.MILLISECONDS.convert(tempoFinal - tempoInicial, TimeUnit.NANOSECONDS);
 
-        tempoInicial = System.currentTimeMillis();
+        tempoInicial = System.nanoTime();
         ordenador.BubbleSortMelhorado(vetorCopiaRandomico);
-        tempoFinal = System.currentTimeMillis();
-        tempoVetorRandomico = tempoFinal - tempoInicial;
+        tempoFinal = System.nanoTime();
+        tempoVetorRandomico = TimeUnit.MILLISECONDS.convert(tempoFinal - tempoInicial, TimeUnit.NANOSECONDS);
 
         Exibir(tempoVetorCrescente, tempoVetorDecrescente, tempoVetorRandomico);
     }
@@ -217,20 +219,20 @@ public class Executar {
         long tempoFinal, tempoInicial;
 
         long tempoVetorCrescente, tempoVetorDecrescente, tempoVetorRandomico;
-        tempoInicial = System.currentTimeMillis();
+        tempoInicial = System.nanoTime();
         ordenador.QuickSort1(vetorCopiaCrescente, 0, (vetorCopiaRandomico.length) - 1);
-        tempoFinal = System.currentTimeMillis();
-        tempoVetorCrescente = tempoFinal - tempoInicial;
+        tempoFinal = System.nanoTime();
+        tempoVetorCrescente = TimeUnit.MILLISECONDS.convert(tempoFinal - tempoInicial, TimeUnit.NANOSECONDS);
 
-        tempoInicial = System.currentTimeMillis();
+        tempoInicial = System.nanoTime();
         ordenador.QuickSort1(vetorCopiaDecrescente, 0, (vetorCopiaRandomico.length) - 1);
-        tempoFinal = System.currentTimeMillis();
-        tempoVetorDecrescente = tempoFinal - tempoInicial;
+        tempoFinal = System.nanoTime();
+        tempoVetorDecrescente = TimeUnit.MILLISECONDS.convert(tempoFinal - tempoInicial, TimeUnit.NANOSECONDS);
 
-        tempoInicial = System.currentTimeMillis();
+        tempoInicial = System.nanoTime();
         ordenador.QuickSort1(vetorCopiaRandomico, 0, (vetorCopiaRandomico.length) - 1);
-        tempoFinal = System.currentTimeMillis();
-        tempoVetorRandomico = tempoFinal - tempoInicial;
+        tempoFinal = System.nanoTime();
+        tempoVetorRandomico = TimeUnit.MILLISECONDS.convert(tempoFinal - tempoInicial, TimeUnit.NANOSECONDS);
 
         Exibir(tempoVetorCrescente, tempoVetorDecrescente, tempoVetorRandomico);
     }
@@ -239,20 +241,20 @@ public class Executar {
         long tempoFinal, tempoInicial;
 
         long tempoVetorCrescente, tempoVetorDecrescente, tempoVetorRandomico;
-        tempoInicial = System.currentTimeMillis();
+        tempoInicial = System.nanoTime();
         ordenador.QuickSort2(vetorCopiaCrescente, 0, (vetorCopiaRandomico.length) - 1);
-        tempoFinal = System.currentTimeMillis();
-        tempoVetorCrescente = tempoFinal - tempoInicial;
+        tempoFinal = System.nanoTime();
+        tempoVetorCrescente = TimeUnit.MILLISECONDS.convert(tempoFinal - tempoInicial, TimeUnit.NANOSECONDS);
 
-        tempoInicial = System.currentTimeMillis();
+        tempoInicial = System.nanoTime();
         ordenador.QuickSort2(vetorCopiaDecrescente, 0, (vetorCopiaRandomico.length) - 1);
-        tempoFinal = System.currentTimeMillis();
-        tempoVetorDecrescente = tempoFinal - tempoInicial;
+        tempoFinal = System.nanoTime();
+        tempoVetorDecrescente = TimeUnit.MILLISECONDS.convert(tempoFinal - tempoInicial, TimeUnit.NANOSECONDS);
 
-        tempoInicial = System.currentTimeMillis();
+        tempoInicial = System.nanoTime();
         ordenador.QuickSort2(vetorCopiaRandomico, 0, (vetorCopiaRandomico.length) - 1);
-        tempoFinal = System.currentTimeMillis();
-        tempoVetorRandomico = tempoFinal - tempoInicial;
+        tempoFinal = System.nanoTime();
+        tempoVetorRandomico = TimeUnit.MILLISECONDS.convert(tempoFinal - tempoInicial, TimeUnit.NANOSECONDS);
 
         Exibir(tempoVetorCrescente, tempoVetorDecrescente, tempoVetorRandomico);
     }
@@ -261,20 +263,20 @@ public class Executar {
         long tempoFinal, tempoInicial;
 
         long tempoVetorCrescente, tempoVetorDecrescente, tempoVetorRandomico;
-        tempoInicial = System.currentTimeMillis();
+        tempoInicial =System.nanoTime();
         ordenador.InsertionSort(vetorCopiaCrescente);
-        tempoFinal = System.currentTimeMillis();
-        tempoVetorCrescente = tempoFinal - tempoInicial;
+        tempoFinal = System.nanoTime();
+        tempoVetorCrescente = TimeUnit.MILLISECONDS.convert(tempoFinal - tempoInicial, TimeUnit.NANOSECONDS);
 
-        tempoInicial = System.currentTimeMillis();
+        tempoInicial = System.nanoTime();
         ordenador.InsertionSort(vetorCopiaDecrescente);
-        tempoFinal = System.currentTimeMillis();
-        tempoVetorDecrescente = tempoFinal - tempoInicial;
+        tempoFinal = System.nanoTime();
+        tempoVetorDecrescente = TimeUnit.MILLISECONDS.convert(tempoFinal - tempoInicial, TimeUnit.NANOSECONDS);
 
-        tempoInicial = System.currentTimeMillis();
+        tempoInicial = System.nanoTime();
         ordenador.InsertionSort(vetorCopiaRandomico);
-        tempoFinal = System.currentTimeMillis();
-        tempoVetorRandomico = tempoFinal - tempoInicial;
+        tempoFinal = System.nanoTime();
+        tempoVetorRandomico = TimeUnit.MILLISECONDS.convert(tempoFinal - tempoInicial, TimeUnit.NANOSECONDS);
 
         Exibir(tempoVetorCrescente, tempoVetorDecrescente, tempoVetorRandomico);
     }
@@ -283,20 +285,20 @@ public class Executar {
         long tempoFinal, tempoInicial;
 
         long tempoVetorCrescente, tempoVetorDecrescente, tempoVetorRandomico;
-        tempoInicial = System.currentTimeMillis();
+        tempoInicial = System.nanoTime();
         ordenador.ShellSort(vetorCopiaCrescente);
-        tempoFinal = System.currentTimeMillis();
-        tempoVetorCrescente = tempoFinal - tempoInicial;
+        tempoFinal = System.nanoTime();
+        tempoVetorCrescente = TimeUnit.MILLISECONDS.convert(tempoFinal - tempoInicial, TimeUnit.NANOSECONDS);
 
-        tempoInicial = System.currentTimeMillis();
+        tempoInicial =System.nanoTime();
         ordenador.ShellSort(vetorCopiaDecrescente);
-        tempoFinal = System.currentTimeMillis();
-        tempoVetorDecrescente = tempoFinal - tempoInicial;
+        tempoFinal = System.nanoTime();
+        tempoVetorDecrescente = TimeUnit.MILLISECONDS.convert(tempoFinal - tempoInicial, TimeUnit.NANOSECONDS);
 
-        tempoInicial = System.currentTimeMillis();
+        tempoInicial = System.nanoTime();
         ordenador.ShellSort(vetorCopiaRandomico);
-        tempoFinal = System.currentTimeMillis();
-        tempoVetorRandomico = tempoFinal - tempoInicial;
+        tempoFinal = System.nanoTime();
+        tempoVetorRandomico = TimeUnit.MILLISECONDS.convert(tempoFinal - tempoInicial, TimeUnit.NANOSECONDS);
 
         Exibir(tempoVetorCrescente, tempoVetorDecrescente, tempoVetorRandomico);
     }
@@ -305,20 +307,20 @@ public class Executar {
         long tempoFinal, tempoInicial;
 
         long tempoVetorCrescente, tempoVetorDecrescente, tempoVetorRandomico;
-        tempoInicial = System.currentTimeMillis();
+        tempoInicial = System.nanoTime();
         ordenador.SelectionSort(vetorCopiaCrescente);
-        tempoFinal = System.currentTimeMillis();
-        tempoVetorCrescente = tempoFinal - tempoInicial;
+        tempoFinal = System.nanoTime();
+        tempoVetorCrescente = TimeUnit.MILLISECONDS.convert(tempoFinal - tempoInicial, TimeUnit.NANOSECONDS);
 
-        tempoInicial = System.currentTimeMillis();
+        tempoInicial = System.nanoTime();
         ordenador.SelectionSort(vetorCopiaDecrescente);
-        tempoFinal = System.currentTimeMillis();
-        tempoVetorDecrescente = tempoFinal - tempoInicial;
+        tempoFinal = System.nanoTime();
+        tempoVetorDecrescente = TimeUnit.MILLISECONDS.convert(tempoFinal - tempoInicial, TimeUnit.NANOSECONDS);
 
-        tempoInicial = System.currentTimeMillis();
+        tempoInicial = System.nanoTime();
         ordenador.SelectionSort(vetorCopiaRandomico);
-        tempoFinal = System.currentTimeMillis();
-        tempoVetorRandomico = tempoFinal - tempoInicial;
+        tempoFinal = System.nanoTime();
+        tempoVetorRandomico = TimeUnit.MILLISECONDS.convert(tempoFinal - tempoInicial, TimeUnit.NANOSECONDS);
 
         Exibir(tempoVetorCrescente, tempoVetorDecrescente, tempoVetorRandomico);
     }
@@ -327,20 +329,25 @@ public class Executar {
         long tempoFinal, tempoInicial;
 
         long tempoVetorCrescente, tempoVetorDecrescente, tempoVetorRandomico;
-        tempoInicial = System.currentTimeMillis();
+        
+        tempoInicial = System.nanoTime();
         ordenador.HeapSort(vetorCopiaCrescente);
-        tempoFinal = System.currentTimeMillis();
-        tempoVetorCrescente = tempoFinal - tempoInicial;
-
-        tempoInicial = System.currentTimeMillis();
+        tempoFinal = System.nanoTime();
+        tempoVetorCrescente = TimeUnit.MILLISECONDS.convert(tempoFinal - tempoInicial, TimeUnit.NANOSECONDS);
+        
+        tempoInicial = tempoFinal = 0;
+        
+        tempoInicial = System.nanoTime();
         ordenador.HeapSort(vetorCopiaDecrescente);
-        tempoFinal = System.currentTimeMillis();
-        tempoVetorDecrescente = tempoFinal - tempoInicial;
-
-        tempoInicial = System.currentTimeMillis();
+        tempoFinal = System.nanoTime();
+        tempoVetorDecrescente = TimeUnit.MILLISECONDS.convert(tempoFinal - tempoInicial, TimeUnit.NANOSECONDS);
+        
+        tempoInicial = tempoFinal = 0;
+        
+        tempoInicial =  System.nanoTime();
         ordenador.HeapSort(vetorCopiaRandomico);
-        tempoFinal = System.currentTimeMillis();
-        tempoVetorRandomico = tempoFinal - tempoInicial;
+        tempoFinal =  System.nanoTime();
+        tempoVetorRandomico = TimeUnit.MILLISECONDS.convert(tempoFinal - tempoInicial, TimeUnit.NANOSECONDS);
 
         Exibir(tempoVetorCrescente, tempoVetorDecrescente, tempoVetorRandomico);
     }
@@ -349,20 +356,20 @@ public class Executar {
         long tempoFinal, tempoInicial;
 
         long tempoVetorCrescente, tempoVetorDecrescente, tempoVetorRandomico;
-        tempoInicial = System.currentTimeMillis();
-        ordenador.MergeSort(vetorCopiaCrescente, 0, (vetorCopiaRandomico.length) - 1);
-        tempoFinal = System.currentTimeMillis();
-        tempoVetorCrescente = tempoFinal - tempoInicial;
+        tempoInicial = System.nanoTime();
+        ordenador.MergeSort(vetorCopiaCrescente);
+        tempoFinal = System.nanoTime();
+        tempoVetorCrescente = TimeUnit.MILLISECONDS.convert(tempoFinal - tempoInicial, TimeUnit.NANOSECONDS);
 
-        tempoInicial = System.currentTimeMillis();
-        ordenador.MergeSort(vetorCopiaDecrescente, 0, (vetorCopiaRandomico.length) - 1);
-        tempoFinal = System.currentTimeMillis();
-        tempoVetorDecrescente = tempoFinal - tempoInicial;
+        tempoInicial = System.nanoTime();
+        ordenador.MergeSort(vetorCopiaDecrescente);
+        tempoFinal = System.nanoTime();
+        tempoVetorDecrescente = TimeUnit.MILLISECONDS.convert(tempoFinal - tempoInicial, TimeUnit.NANOSECONDS);
 
-        tempoInicial = System.currentTimeMillis();
-        ordenador.MergeSort(vetorCopiaRandomico, 0, (vetorCopiaRandomico.length) - 1);
-        tempoFinal = System.currentTimeMillis();
-        tempoVetorRandomico = tempoFinal - tempoInicial;
+        tempoInicial = System.nanoTime();
+        ordenador.MergeSort(vetorCopiaRandomico);
+        tempoFinal = System.nanoTime();
+        tempoVetorRandomico = TimeUnit.MILLISECONDS.convert(tempoFinal - tempoInicial, TimeUnit.NANOSECONDS);
 
         Exibir(tempoVetorCrescente, tempoVetorDecrescente, tempoVetorRandomico);
     }
@@ -435,7 +442,7 @@ public class Executar {
     private void Exibir(long tempoVetorCrescente, long tempoVetorDecrescente, long tempoVetorRandomico) {
         int i;
         
-       // ExibirVetoresOrdenados();
+        //ExibirVetoresOrdenados();
 
         System.out.println("\nVetor que foi iniciado em ordem crescente foi ordenado em = " + tempoVetorCrescente + " ms");
 

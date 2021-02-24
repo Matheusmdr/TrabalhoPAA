@@ -5,12 +5,15 @@
  */
 package trabalhopaa;
 
+import java.util.Arrays;
+
 /**
  *
  * @author mathe
  */
 public class Ordenacao {
-     public void BubbleSort(int[] v) {
+
+    public void BubbleSort(int[] v) {
         for (int i = 1; i < v.length; i++) {
             for (int j = 0; j < v.length - i; j++) {
                 if (v[j] > v[j + 1]) {
@@ -44,11 +47,31 @@ public class Ordenacao {
 
 //------------------------------------------------------------------------------//
     public void QuickSort1(int[] v, int ini, int fim) {
-        if (ini < fim) {
-            int j = separar1(v, ini, fim);
-            QuickSort1(v, ini, j - 1);
-            QuickSort1(v, j + 1, fim);
+
+        int[] aux = new int[fim - ini + 1];
+
+        int top = -1;
+        aux[++top] = ini;
+        aux[++top] = fim;
+
+        while (top >= 0) {
+
+            fim = aux[top--];
+            ini = aux[top--];
+
+            int p = separar1(v, ini, fim);
+
+            if (p - 1 > ini) {
+                aux[++top] = ini;
+                aux[++top] = p - 1;
+            }
+
+            if (p + 1 < fim) {
+                aux[++top] = p + 1;
+                aux[++top] = fim;
+            }
         }
+
     }
 
     private int separar1(int[] v, int ini, int fim) {
@@ -71,11 +94,31 @@ public class Ordenacao {
 //------------------------------------------------------------------------------//
 
     public void QuickSort2(int[] v, int ini, int fim) {
-        if (ini < fim) {
-            int j = separar2(v, ini, fim);
-            QuickSort2(v, ini, j - 1);
-            QuickSort2(v, j, fim);
+
+        int[] aux = new int[fim - ini + 1];
+
+        int top = -1;
+        aux[++top] = ini;
+        aux[++top] = fim;
+
+        while (top >= 0) {
+
+            fim = aux[top--];
+            ini = aux[top--];
+
+            int p = separar2(v, ini, fim);
+
+            if (ini < p-1) {
+                aux[++top] = ini;
+                aux[++top] = p - 1;
+            }
+
+            if (p < fim) {
+                aux[++top] = p;
+                aux[++top] = fim;
+            }
         }
+
     }
 
     private int separar2(int[] v, int ini, int fim) {
@@ -179,46 +222,55 @@ public class Ordenacao {
     }
 //------------------------------------------------------------------------------//
 
-    public void merge(int[] v, int ini, int meio, int fim) {
-        int n1 = meio - ini + 1;
-        int n2 = fim - meio;
-        int L[] = new int[n1];
-        int R[] = new int[n2];
-        for (int i = 0; i < n1; ++i) {
-            L[i] = v[ini + i];
-        }
-        for (int j = 0; j < n2; ++j) {
-            R[j] = v[meio + 1 + j];
-        }
-        int i = 0, j = 0, k = 1;
-        while (i < n1 && j < n2) {
-            if (L[i] <= R[j]) {
-                v[k] = L[i];
+    private void merge(int[] vetor, int ini, int meio, int fim) {
+        int i = ini, j = meio + 1, k = ini;
+        int[] vetorB = new int[vetor.length];
+
+        while ((i <= meio) && (j <= fim)) {
+            if (vetor[i] < vetor[j]) {
+                vetorB[k] = vetor[i];
+                k++;
                 i++;
             } else {
-                v[k] = R[j];
+                vetorB[k] = vetor[j];
+                k++;
                 j++;
             }
-            k++;
         }
-        while (i < n1) {
-            v[k] = L[i];
+
+        while (i <= meio) {
+            vetorB[k] = vetor[i];
+            k++;
             i++;
-            k++;
         }
-        while (j < n2) {
-            v[k] = R[j];
-            j++;
+        while (j <= fim) {
+            vetorB[k] = vetor[j];
             k++;
+            j++;
+        }
+
+        for (i = ini; i <= fim; i++) {
+            vetor[i] = vetorB[i];
         }
     }
 
-    public void MergeSort(int[] v, int ini, int fim) {
-        if (ini < fim) {
-            int meio = (ini + fim) / 2;
-            MergeSort(v, ini, meio);
-            MergeSort(v, meio + 1, fim);
-            merge(v, ini, meio, fim);
+    void MergeSort(int[] v) {
+        int n = v.length;
+        int esq, dir;
+        int b = 1;
+        while (b < n) {
+            esq = 0;
+            while (esq + b < n) {
+                dir = esq + 2 * b;
+                if (dir > n) {
+                    dir = n;
+                }
+                merge(v, esq, esq + b - 1, dir - 1);
+                esq = esq + 2 * b;
+            }
+            b *= 2;
         }
+
     }
+
 }
