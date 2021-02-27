@@ -1,15 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package trabalhopaa;
 
 import java.util.Arrays;
 
 /**
  *
- * @author mathe
+ * @author Lucas Gonçalves Ferreira e Matheus Magalhães da Rocha
  */
 public class Ordenacao {
 
