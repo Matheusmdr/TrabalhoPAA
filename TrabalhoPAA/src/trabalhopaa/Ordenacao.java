@@ -203,7 +203,7 @@ public class Ordenacao {
         }
     }
 
-    public void heapify(int[] v, int n, int i) {
+    private void heapify(int[] v, int n, int i) {
         int largest = i;
         int l = 2 * i + 1;
         int r = 2 * i + 2;
@@ -254,7 +254,7 @@ public class Ordenacao {
         }
     }
 
-    void MergeSort(int[] v) {
+    public void MergeSort(int[] v) {
         int n = v.length;
         int esq, dir;
         int b = 1;
@@ -270,7 +270,6 @@ public class Ordenacao {
             }
             b *= 2;
         }
-
     }
 
 }

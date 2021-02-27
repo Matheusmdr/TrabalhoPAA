@@ -33,8 +33,8 @@ public class Executar {
                 + "2 - Exibir Vetores Não Ordenados\n"
                 + "3 – Bubble Sort\n"
                 + "4 – Bubble Sort melhorado\n"
-                + "5 – Quick Sort(com pivô sendo o primeiro elemento da lista – partição)\n"
-                + "6 – Quick Sort (com pivô sendo o elemento central da lista – partição)\n"
+                + "5 – Quick Sort(com pivô sendo o primeiro elemento da lista)\n"
+                + "6 – Quick Sort (com pivô sendo o elemento central da lista)\n"
                 + "7 – Insertion Sort\n"
                 + "8 – Shell Sort\n"
                 + "9 – Selection Sort\n"
@@ -61,7 +61,7 @@ public class Executar {
                 case 1:
                     clrscr();
                     do {
-                        System.out.println("Insira a quantidade de elementos que o vetor deve ter: ");
+                        System.out.println("Insira a quantidade de elementos que o vetor deve ter (A quantidade deve ser maior que 0): ");
                         sc = new Scanner(System.in);
                         quantidade = Integer.parseInt(sc.nextLine());
                     } while (quantidade <= 0);
@@ -101,7 +101,7 @@ public class Executar {
                 case 5:
                     clrscr();
                     if (aux) {
-                        System.out.println("-Quick Sort (com pivô sendo o primeiro elemento da lista – partição)\n");
+                        System.out.println("-Quick Sort (com pivô sendo o primeiro elemento da lista)\n");
                         copiarVetores();
                         TestarQuickSort1();
                     } else {
@@ -111,7 +111,7 @@ public class Executar {
                 case 6:
                     clrscr();
                     if (aux) {
-                        System.out.println("-Quick Sort (com pivô sendo o elemento central da lista – partição)\n");
+                        System.out.println("-Quick Sort (com pivô sendo o elemento central da lista)\n");
                         copiarVetores();
                         TestarQuickSort2();
                     } else {
@@ -399,11 +399,11 @@ public class Executar {
         copiarVetores();
         TestarBubbleSortMelhorado();
         
-        System.out.println("\n-Quick Sort (com pivô sendo o primeiro elemento da lista – partição)\n");
+        System.out.println("\n-Quick Sort (com pivô sendo o primeiro elemento da lista)\n");
         copiarVetores();
         TestarQuickSort1();
         
-        System.out.println("\n-Quick Sort (com pivô sendo o elemento central da lista – partição)\n");
+        System.out.println("\n-Quick Sort (com pivô sendo o elemento central da lista)\n");
         copiarVetores();
         TestarQuickSort2();
         
@@ -458,17 +458,17 @@ public class Executar {
     private void ExibirVetoresNaoOrdenados() {
         int i;
 
-        System.out.println("\n\nVetor iniciado em ordem Crescente: ");
+        System.out.println("\nVetor iniciado em ordem Crescente: ");
         for (i = 0; i < vetorCrescente.length; i++) {
             System.out.println(vetorCrescente[i]);
         }
 
-        System.out.println("\n\nVetor iniciado em ordem Decrescente: ");
+        System.out.println("\nVetor iniciado em ordem Decrescente: ");
         for (i = 0; i < vetorDecrescente.length; i++) {
             System.out.println(vetorDecrescente[i]);
         }
 
-        System.out.println("\n\nVetor iniciado em ordem aleatória: ");
+        System.out.println("\nVetor iniciado em ordem aleatória: ");
         for (i = 0; i < vetorRandomico.length; i++) {
             System.out.println(vetorRandomico[i]);
         }
@@ -477,27 +477,26 @@ public class Executar {
     private void ExibirVetoresOrdenados() {
         int i;
 
-        System.out.println("\n\nVetor iniciado em ordem Crescente: ");
+        System.out.println("\nVetor iniciado em ordem Crescente: ");
         for (i = 0; i < vetorCopiaCrescente.length; i++) {
             System.out.println(vetorCopiaCrescente[i]);
         }
 
-        System.out.println("\n\nVetor iniciado em ordem Decrescente: ");
+        System.out.println("\nVetor iniciado em ordem Decrescente: ");
         for (i = 0; i < vetorCopiaDecrescente.length; i++) {
             System.out.println(vetorCopiaDecrescente[i]);
         }
 
-        System.out.println("\n\nVetor iniciado em ordem aleatória: ");
+        System.out.println("\nVetor iniciado em ordem aleatória: ");
         for (i = 0; i < vetorCopiaRandomico.length; i++) {
             System.out.println(vetorCopiaRandomico[i]);
         }
     }
 
     private void Exibir(long tempoVetorCrescente, long tempoVetorDecrescente, long tempoVetorRandomico) {
-        int i;
 
-        //ExibirVetoresOrdenados();
-        System.out.println("Crescente: " + tempoVetorCrescente + " ms");
+        ExibirVetoresOrdenados();
+        System.out.println("\nCrescente: " + tempoVetorCrescente + " ms");
 
         System.out.println("Decrescente: " + tempoVetorDecrescente + " ms");
 
