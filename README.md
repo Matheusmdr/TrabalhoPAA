@@ -1,8 +1,8 @@
-# Trabalho Final Projeto e Análise de Algoritmos
+# Trabalho Final Projeto e Análise de Algoritmos 💾
 
 
-O presente trabalho é um relatório da disciplina Projeto e
-Análise de Algoritmos, listando o tempo de execução de diferentes algoritmos de
+O presente trabalho é um relatório da disciplina **Projeto e
+Análise de Algoritmos**, listando o tempo de execução de diferentes algoritmos de
 ordenação(após a implementação dos mesmos em uma linguagem escolhida pela
 equipe, no caso, Java) e comparando com a análise assintótica dos mesmos.
 
